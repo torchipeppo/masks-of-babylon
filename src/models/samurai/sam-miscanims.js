@@ -452,16 +452,16 @@ const animFlinch_L_mant_02 = new MYANIM.Animation(_animFlinch_L_mant_02_bab, _an
 function flinch(meshdata, scene, onAnimationEnd) {
     meshdata.stopAllAnimations(scene);
     MYANIM.directAnimation(scene, meshdata.mesh, [animFlinch_meshPos]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_Spine"), [animFlinch_spine], onAnimationEnd);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_Spine1"), [animFlinch_spine1]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_Neck"), [animFlinch_neck]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_L_UpperArm"), [animFlinch_L_upperarm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_L_Forearm"), [animFlinch_L_forearm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_R_UpperArm"), [animFlinch_R_upperarm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_R_Forearm"), [animFlinch_R_forearm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_R_Hand"), [animFlinch_R_hand]);
-    MYANIM.directAnimation(scene, meshdata.getBone("b_L_mant_01"), [animFlinch_L_mant_01]);
-    MYANIM.directAnimation(scene, meshdata.getBone("b_L_mant_02"), [animFlinch_L_mant_02]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_Spine"), [animFlinch_spine], onAnimationEnd);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_Spine1"), [animFlinch_spine1]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_Neck"), [animFlinch_neck]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_L_UpperArm"), [animFlinch_L_upperarm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_L_Forearm"), [animFlinch_L_forearm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_R_UpperArm"), [animFlinch_R_upperarm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_R_Forearm"), [animFlinch_R_forearm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_R_Hand"), [animFlinch_R_hand]);
+    MYANIM.directAnimation(scene, meshdata.getNode("b_L_mant_01"), [animFlinch_L_mant_01]);
+    MYANIM.directAnimation(scene, meshdata.getNode("b_L_mant_02"), [animFlinch_L_mant_02]);
     // reset legs etc. (less noticeable because of the vibration, which is good because we can't wait for endIdleGracefully in this case)
     meshdata.getNode("Bip01_L_Thigh").rotation = RotationFromDegrees(-29.9, 26.9, 25.6);
     meshdata.getNode("Bip01_L_Calf").rotation = RotationFromDegrees(39.1, 33.3, 5.32);

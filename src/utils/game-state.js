@@ -7,6 +7,7 @@
  */
 
 import dungeonSceneBuilder from "../scenes/dungeon.js";
+import { theOptions } from "./options.js";
 
 const CARRIEDOBJECT = {
     NONE: 0,
@@ -55,6 +56,12 @@ function initGameState() {
         },
         storySeen: false,
     };
+    if (theOptions.freeRoamMode) {
+        theGameState.keyState.yellow = KEYSTATE.DONE;
+        theGameState.keyState.green = KEYSTATE.DONE;
+        theGameState.keyState.blue = KEYSTATE.DONE;
+        theGameState.keyState.red = KEYSTATE.DONE;
+    }
 }
 
 export {

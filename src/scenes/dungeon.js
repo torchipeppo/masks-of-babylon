@@ -32,6 +32,11 @@ import * as STORY_UI from "../user-interfaces/story-ui.js";
 import * as DGLIB from "../utils/lib-dungeon.js";
 import * as GLOBLIB from "../utils/lib-global.js";
 
+import { loadSamuraiAsync } from "../models/samurai/samurai-meshdata.js";
+import sam_miscanims from "../models/samurai/sam-miscanims.js"
+import { theSceneManager } from "../utils/scene-manager.js";
+import battleSceneBuilder from "./battle.js";
+
 /**
  * Creates this scene.
  * @param {*} canvas The HTML canvas used for rendering
@@ -191,6 +196,51 @@ async function createScene(canvas, engine, position, target) {
     addBlock(floor, wall, [21,0,19], ["N","S",], true, scene);
     addBlock(floor, wall, [26,0,18], ["N","S",], true, scene);
     addBlock(floor, wall, [27,0,18], ["N","S",], true, scene);
+
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    // DEBUG
+    let samurai = await loadSamuraiAsync(scene);
+    samurai.mesh.position.x = 29*6;
+    samurai.mesh.position.y = 0.0;
+    samurai.mesh.position.z = 12*6;
+    samurai.mesh.rotation = new BABYLON.Vector3(0, -Math.PI/2, 0);
+    samurai.mesh.scaling = new BABYLON.Vector3(-0.01, 0.01, 0.01);
+    sam_miscanims.idle_customY(samurai, -0.18, -0.24, scene);
+    samurai.meshes.forEach((mesh, index) => {
+        mesh.isPickable = true;
+
+        // add an action manager to change the cursor on hover
+        mesh.actionManager = new BABYLON.ActionManager(scene);
+        mesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPointerOverTrigger, function(ev){
+            // project positions on the XZ plane to ignore vertical distances
+            let playerpos = scene.activeCamera.position.multiply(new BABYLON.Vector3(1, 0, 1));
+            let objectpos = samurai.mesh.position;
+            let sqrdist = BABYLON.Vector3.DistanceSquared(playerpos, objectpos);
+            if (sqrdist < DGLIB.PICK_DISTANCE_LIMIT*DGLIB.PICK_DISTANCE_LIMIT) {
+                mesh.actionManager.hoverCursor = "pointer";
+            }
+            else {
+                mesh.actionManager.hoverCursor = "default";
+            }
+        }));
+
+        mesh.onPicked = function() {
+            theGameState.playerInDungeon.currentSceneBuilder = sceneBuilder;
+            theGameState.playerInDungeon.currentPositionInScene = camera.position;
+            theGameState.playerInDungeon.currentCameraTarget = camera.target;
+            theGameState.enemiesEncountered.green = true;
+            theSceneManager.gotoScene(battleSceneBuilder, "BATTLE START!");
+        }
+    })
+    let roadblockBox = BABYLON.MeshBuilder.CreateBox("roadblockBox", {
+        size: 6,
+    }, scene);
+    roadblockBox.position.x = 29*6;
+    roadblockBox.position.y = 3;
+    roadblockBox.position.z = 12*6;
+    roadblockBox.isVisible = false;
+    roadblockBox.checkCollisions = true;
 
     //////////////////////////////////////////////////////////////////////////////////////
 

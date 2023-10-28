@@ -167,11 +167,11 @@ function makeEvents(sceneInfo) {
  */
 function perform(sceneInfo) {
     makoto.meshdata.stopAllAnimations(sceneInfo.scene);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_Spine1"), [animSlash_spine1]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_Neck"), [animSlash_neck]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_Clavicle"), [animSlash_R_clavicle]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_UpperArm"), [animSlash_R_upperarm], ()=>{sceneInfo.turn_system.player_done(sceneInfo);});
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_Forearm"), [animSlash_R_forearm]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_Spine1"), [animSlash_spine1]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_Neck"), [animSlash_neck]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_Clavicle"), [animSlash_R_clavicle]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_UpperArm"), [animSlash_R_upperarm], ()=>{sceneInfo.turn_system.player_done(sceneInfo);});
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_Forearm"), [animSlash_R_forearm]);
 }
 
 /**

@@ -426,11 +426,11 @@ function perform(sceneInfo) {
     sceneInfo.effectPointLight.specular = specular;
     sceneInfo.effectPointLight.shadowEnabled = true;
     //animation
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_Spine1"), [animShoot_spine1]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_Neck"), [animShoot_neck]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_L_Clavicle"), [animShoot_L_clavicle]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_L_UpperArm"), [animShoot_L_upperarm]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_L_Forearm"), [animShoot_L_forearm], ()=>{makoto.idle(sceneInfo)});
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_Spine1"), [animShoot_spine1]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_Neck"), [animShoot_neck]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_L_Clavicle"), [animShoot_L_clavicle]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_L_UpperArm"), [animShoot_L_upperarm]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_L_Forearm"), [animShoot_L_forearm], ()=>{makoto.idle(sceneInfo)});
     MYANIM.directAnimation(sceneInfo.scene, sceneInfo.ambientLight, [animAmbientEmphasis], ()=>{sceneInfo.turn_system.player_done();});
 }
 

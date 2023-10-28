@@ -6,6 +6,7 @@
 
 const theOptions = {
     hardMode: false,   // boolean for hard/normal
+    freeRoamMode: false,  // boolean
     sensibility: 2,   // scale from 1 to 3
     shadows: 2,      // scale from 0 to 2, where 0 is OFF
 }

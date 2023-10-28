@@ -751,21 +751,21 @@ function perform(sceneInfo) {
         sceneInfo.effectHemiLight.includedOnlyMeshes = includedOnly;
 
         //animation
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_Spine"), [animSlashDown_spine], ()=>{samurai.idle(sceneInfo)});
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_Head"), [animSlashDown_head]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_L_UpperArm"), [animSlashDown_L_upperarm]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_L_Forearm"), [animSlashDown_L_forearm]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_L_Hand"), [animSlashDown_L_hand]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_R_UpperArm"), [animSlashDown_R_upperarm]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_R_Forearm"), [animSlashDown_R_forearm]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("Bip01_R_Hand"), [animSlashDown_R_hand]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("ken_move01"), [animSlashDown_ken]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_F_mant_01"), [animSlashDown_F_mant_01]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_F_mant_02"), [animSlashDown_F_mant_02]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_L_mant_01"), [animSlashDown_L_mant_01]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_L_mant_02"), [animSlashDown_L_mant_02]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_R_mant_01"), [animSlashDown_R_mant_01]);
-        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getBone("b_R_mant_02"), [animSlashDown_R_mant_02]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_Spine"), [animSlashDown_spine], ()=>{samurai.idle(sceneInfo)});
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_Head"), [animSlashDown_head]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_L_UpperArm"), [animSlashDown_L_upperarm]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_L_Forearm"), [animSlashDown_L_forearm]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_L_Hand"), [animSlashDown_L_hand]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_R_UpperArm"), [animSlashDown_R_upperarm]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_R_Forearm"), [animSlashDown_R_forearm]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("Bip01_R_Hand"), [animSlashDown_R_hand]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("ken_move01"), [animSlashDown_ken]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_F_mant_01"), [animSlashDown_F_mant_01]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_F_mant_02"), [animSlashDown_F_mant_02]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_L_mant_01"), [animSlashDown_L_mant_01]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_L_mant_02"), [animSlashDown_L_mant_02]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_R_mant_01"), [animSlashDown_R_mant_01]);
+        MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.getNode("b_R_mant_02"), [animSlashDown_R_mant_02]);
         MYANIM.directAnimation(sceneInfo.scene, samurai.meshdata.theMaterialWithEmission, [animEmission]);
         MYANIM.directAnimation(sceneInfo.scene, sceneInfo.ambientLight, [animAmbientEmphasis], ()=>{sceneInfo.turn_system.enemy_done();});
     })

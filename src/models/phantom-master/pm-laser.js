@@ -665,21 +665,21 @@ function rollDamage() {
     sceneInfo.effectSpotLight.exponent = lightexp;
     sceneInfo.effectSpotLight.shadowEnabled = true;
     //animation
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("Bip01_Spine2"), [animShoot_spine2], ()=>{sceneInfo.turn_system.enemy_done(sceneInfo);});
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("Bip01_L_UpperArm"), [animShoot_L_upperarm]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("Bip01_L_Forearm"), [animShoot_L_forearm]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("Bip01_R_UpperArm"), [animShoot_R_upperarm]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("Bip01_R_Forearm"), [animShoot_R_forearm]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_l_mantFRONT_00"), [animShoot_L_mantfront_lv1]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_l_mantFRONT_01"), [animShoot_L_mantfront_lv2]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_r_mantFRONT_00"), [animShoot_R_mantfront_lv1]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_r_mantFRONT_01"), [animShoot_R_mantfront_lv2]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_l_mantSIDEBACK_00"), [animShoot_L_mantsideback_lv1]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_l_mantSIDEBACK_02"), [animShoot_L_mantsideback_lv2]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_r_mantSIDEBACK_00"), [animShoot_R_mantsideback_lv1]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_r_mantSIDEBACK_02"), [animShoot_R_mantsideback_lv2]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_mantBACK_00"), [animShoot_mantback_lv1]);
-    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getBone("b_mantBACK_02"), [animShoot_mantback_lv2]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("Bip01_Spine2"), [animShoot_spine2], ()=>{sceneInfo.turn_system.enemy_done(sceneInfo);});
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("Bip01_L_UpperArm"), [animShoot_L_upperarm]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("Bip01_L_Forearm"), [animShoot_L_forearm]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("Bip01_R_UpperArm"), [animShoot_R_upperarm]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("Bip01_R_Forearm"), [animShoot_R_forearm]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_l_mantFRONT_00"), [animShoot_L_mantfront_lv1]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_l_mantFRONT_01"), [animShoot_L_mantfront_lv2]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_r_mantFRONT_00"), [animShoot_R_mantfront_lv1]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_r_mantFRONT_01"), [animShoot_R_mantfront_lv2]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_l_mantSIDEBACK_00"), [animShoot_L_mantsideback_lv1]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_l_mantSIDEBACK_02"), [animShoot_L_mantsideback_lv2]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_r_mantSIDEBACK_00"), [animShoot_R_mantsideback_lv1]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_r_mantSIDEBACK_02"), [animShoot_R_mantsideback_lv2]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_mantBACK_00"), [animShoot_mantback_lv1]);
+    MYANIM.directAnimation(sceneInfo.scene, phantomMaster.meshdata.getNode("b_mantBACK_02"), [animShoot_mantback_lv2]);
     MYANIM.directAnimation(sceneInfo.scene, sceneInfo.ambientLight, [animAmbientEmphasis]);
 }
 

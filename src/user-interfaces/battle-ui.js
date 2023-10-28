@@ -106,7 +106,11 @@ function createUI(sceneInfo) {
     cont_camera_lock.zIndex = 100;    // place this in front so it's not blocked by other elements
     ui.addControl(cont_camera_lock);
 
-    const btn_camera_locked = BABYLON.GUI.Button.CreateImageWithCenterTextButton("btn_camera_locked", "", "assets/GUI/Battle/cameralock-icons.svg#locked");
+    // had to give up on "cameralock-icons.svg#locked" with the upgrade to babylon.js v6,
+    // it seems to be incompatible w/ CreateImageWithCenterTextButton
+    // and this project is too old and complete to be worth figuring out why.
+    // path of minimum restsiance it is.
+    const btn_camera_locked = BABYLON.GUI.Button.CreateImageWithCenterTextButton("btn_camera_locked", "", "assets/GUI/Battle/cameralock-locked.svg");
     btn_camera_locked.isVisible = false;
     btn_camera_locked.background = "black";
     btn_camera_locked.hoverCursor = "pointer";
@@ -118,19 +122,16 @@ function createUI(sceneInfo) {
     });
     cont_camera_lock.addControl(btn_camera_locked);
 
-    const btn_camera_unlocked = BABYLON.GUI.Button.CreateImageWithCenterTextButton("btn_camera_unlocked", "", "assets/GUI/Battle/cameralock-icons.svg#unlocked");
-    const _cameraUnlockedLoadedPromise = new Promise((resolve, reject) => {
-        btn_camera_unlocked.image.onSVGAttributesComputedObservable.add(() => {
-            resolve();
-        })
-        btn_camera_unlocked.image.domImage.onerror = () => {
-            reject();
-        }
-        // safety in case the observable has somehow been already notified before this Promise even started
-        if (btn_camera_unlocked.image.svgAttributesComputationCompleted) {
-            resolve();
-        }
-    })
+    // had to give up on "cameralock-icons.svg#unlocked" with the upgrade to babylon.js v6,
+    // it seems to be incompatible w/ CreateImageWithCenterTextButton
+    // and this project is too old and complete to be worth figuring out why.
+    // path of minimum restsiance it is.
+    const btn_camera_unlocked = BABYLON.GUI.Button.CreateImageWithCenterTextButton("btn_camera_unlocked", "", "assets/GUI/Battle/cameralock-unlocked.svg");
+    // same for the promise waiting for the svg to load.
+    // reason for all this is unknown, especially because
+    // Makoto's command buttons in makoto.js work just fine.
+    // but again, this project is not really worth figuring out right now.
+    // waiting for the other svg's should be enough anyway.
     btn_camera_unlocked.isVisible = false;
     btn_camera_unlocked.background = "black";
     btn_camera_unlocked.hoverCursor = "pointer";
@@ -313,7 +314,7 @@ function createUI(sceneInfo) {
     // meaning that the scene can consider it loaded.
     ui.loadedPromise = Promise.all([
         _chargeLoadedPromise,
-        _cameraUnlockedLoadedPromise,
+        // _cameraUnlockedLoadedPromise,   // for the v6 upgrade, see big comments above
         _commandLoadedPromise,
     ]);
 

@@ -374,13 +374,13 @@ function initParticles(sceneInfo) {
     sceneInfo.effectHemiLight.includedOnlyMeshes = includedOnly;
 
     //animation
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_L_UpperArm"), [animPray_L_upperarm], ()=>{sceneInfo.turn_system.player_done(sceneInfo);});
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_L_Forearm"), [animPray_L_forearm]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_UpperArm"), [animPray_R_upperarm]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_Forearm"), [animPray_R_forearm]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_R_Hand"), [animPray_R_hand]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("weapon"), [animPray_weapon]);
-    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getBone("Bip01_Neck"), [animPray_neck]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_L_UpperArm"), [animPray_L_upperarm], ()=>{sceneInfo.turn_system.player_done(sceneInfo);});
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_L_Forearm"), [animPray_L_forearm]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_UpperArm"), [animPray_R_upperarm]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_Forearm"), [animPray_R_forearm]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_R_Hand"), [animPray_R_hand]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("weapon"), [animPray_weapon]);
+    MYANIM.directAnimation(sceneInfo.scene, makoto.meshdata.getNode("Bip01_Neck"), [animPray_neck]);
     MYANIM.directAnimation(sceneInfo.scene, sceneInfo.ambientLight, [animAmbientEmphasis]);
 }
 

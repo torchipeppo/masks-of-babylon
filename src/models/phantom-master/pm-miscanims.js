@@ -279,12 +279,12 @@ const animFlinch_R_mantfront = new MYANIM.Animation(_animFlinch_R_mantfront_bab,
 function flinch(meshdata, scene, onAnimationEnd) {
     meshdata.stopAllAnimations(scene);
     MYANIM.directAnimation(scene, meshdata.mesh, [animFlinch_meshPos]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_Spine2"), [animFlinch_spine2], onAnimationEnd);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_Spine3"), [animFlinch_spine3]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_L_UpperArm"), [animFlinch_L_upperarm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("Bip01_R_UpperArm"), [animFlinch_R_upperarm]);
-    MYANIM.directAnimation(scene, meshdata.getBone("b_l_mantFRONT_00"), [animFlinch_L_mantfront]);
-    MYANIM.directAnimation(scene, meshdata.getBone("b_r_mantFRONT_00"), [animFlinch_R_mantfront]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_Spine2"), [animFlinch_spine2], onAnimationEnd);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_Spine3"), [animFlinch_spine3]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_L_UpperArm"), [animFlinch_L_upperarm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("Bip01_R_UpperArm"), [animFlinch_R_upperarm]);
+    MYANIM.directAnimation(scene, meshdata.getNode("b_l_mantFRONT_00"), [animFlinch_L_mantfront]);
+    MYANIM.directAnimation(scene, meshdata.getNode("b_r_mantFRONT_00"), [animFlinch_R_mantfront]);
     // reset cape nodes (less noticeable because of the vibration, which is good because we can't wait for endIdleGracefully in this case)
     meshdata.getNode("b_l_mantFRONT_00").rotation = RotationFromDegrees(0, 0, -23.7);
     meshdata.getNode("b_l_mantSIDEBACK_00").rotation = RotationFromDegrees(0, 0, 0);

@@ -78,11 +78,21 @@ async function createScene(canvas, engine) {
     });
 
     const text_authors = new BABYLON.GUI.TextBlock("text_authors");
-    text_authors.text = "IG Project by (in alphabetical order)\nGiovanni Pecorelli, Francesco Petri, Jacopo Rossi, Giacomo Venneri";
+    text_authors.text = "IG Project by (in alphabetical order)\nGiovanni Pecorelli, Francesco Petri, Jacopo Rossi, Giacomo Venneri\nUpgraded to babylon.js v6 for new browser compatibility by Francesco Petri";
     text_authors.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
     text_authors.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
     text_authors.top = "-15px";
     ui.addControl(text_authors);
+
+    const text_freefights = new BABYLON.GUI.TextBlock("text_freefights");
+    text_freefights.text = "For infinite free fights, look behind you as you begin.";
+    text_freefights.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    text_freefights.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+    text_freefights.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+    text_freefights.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+    text_freefights.left = "-15px";
+    text_freefights.top = "-15px";
+    ui.addControl(text_freefights);
 
     // Add controls descriptions
 
@@ -190,7 +200,21 @@ async function createScene(canvas, engine) {
     
     const btn_difficulty_hard = BABYLON.GUI.Button.CreateSimpleButton("btn_difficulty_hard", "Hard");
     const btn_difficulty_normal = BABYLON.GUI.Button.CreateSimpleButton("btn_difficulty_normal", "Normal");
+    const btn_difficulty_freeroam = BABYLON.GUI.Button.CreateSimpleButton("btn_difficulty_freeroam", "Free Roam");
     
+    btn_difficulty_freeroam.color = "black";
+    btn_difficulty_freeroam.hoverCursor = "pointer";
+    btn_difficulty_freeroam.cornerRadius = 20;
+    btn_difficulty_freeroam.background = "white"
+    btn_difficulty_freeroam.width = 0.6;
+    btn_difficulty_freeroam.height = "40px";
+    btn_difficulty_freeroam.onPointerClickObservable.add(function() {
+        theOptions.hardMode = false;
+        theOptions.freeRoamMode = true;
+    });
+    pnl_difficulty.addControl(btn_difficulty_freeroam);
+
+
     btn_difficulty_normal.color = "black";
     btn_difficulty_normal.hoverCursor = "pointer";
     btn_difficulty_normal.cornerRadius = 20;
@@ -199,9 +223,9 @@ async function createScene(canvas, engine) {
     btn_difficulty_normal.height = "40px";
     btn_difficulty_normal.onPointerClickObservable.add(function() {
         theOptions.hardMode = false;
+        theOptions.freeRoamMode = false;
     });
     pnl_difficulty.addControl(btn_difficulty_normal);
-
     
 
     btn_difficulty_hard.color = "black";
@@ -212,6 +236,7 @@ async function createScene(canvas, engine) {
     btn_difficulty_hard.height = "40px";
     btn_difficulty_hard.onPointerClickObservable.add(function() {
         theOptions.hardMode = true;
+        theOptions.freeRoamMode = false;
     });
     pnl_difficulty.addControl(btn_difficulty_hard);
     /////////////   END PANEL DIFFICULTY  /////////////
@@ -338,7 +363,8 @@ async function createScene(canvas, engine) {
 
     // update button colors based on option choice
     scene.onBeforeRenderObservable.add(() => {
-        btn_difficulty_normal.background = theOptions.hardMode ? "white" : "yellow";
+        btn_difficulty_freeroam.background = theOptions.freeRoamMode ? "yellow" : "white";
+        btn_difficulty_normal.background = theOptions.hardMode || theOptions.freeRoamMode ? "white" : "yellow";
         btn_difficulty_hard.background = theOptions.hardMode ? "yellow" : "white";
 
         btn_sensibility_low.background = theOptions.sensibility==1 ? "yellow" : "white";
