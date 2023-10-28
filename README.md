@@ -6,9 +6,11 @@ Final project for the Interactive Graphics course held by Prof. Marco Schaerf.
 
 A simplified turn-based RPG with animations, light effects, and a dungeon to explore.
 
+**Upgraded to babylon.js v6!** Should now work on Firefox 116 and equivalents.
+
 ## Play the game
 
-Check out the [GitHub Page](https://sapienzainteractivegraphicscourse.github.io/final-project-masks-of-babylon/)!
+Check out the [GitHub Page](https://torchipeppo.github.io/masks-of-babylon/)!
 
 *\* If the main menu does not fit the screen, use the zoom out feature of your browser.*
 
